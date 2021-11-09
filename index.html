@@ -151,10 +151,10 @@
         <div class="container">
             <form>
                 <input id="input" type="number" placeholder="Nhập số cần kiểm tra" autofocus>
-                <button id="button" type="button" onclick="Open(), check(), counter()">Click me!!</button>
+                <button id="button" type="button" onclick="toggleon(), check(), counter()">Click me!!</button>
             </form>
             <div id="result">
-                <span id="exit" onclick="Exit()">x</span>
+                <span id="exit" onclick="toggleoff()">x</span>
                 <p id="one"></p>
                 <p id="two"></p>
                 <p id="three"></p>
@@ -163,28 +163,24 @@
         </div>
         <script>
         // Toggle
-           function Open()
+           function toggleon()
            {
                document.getElementById('result').style.display = "flex";
            }
-           function Exit()
+           function toggleoff()
            {
                document.getElementById('result').style.display = "none";
            }
         //    Ktra số nguyên tố
            function songuyento(input)
                {
-                   if(input < 2)
+                   if(input < 2 || input % 1 !=0)
                    {
                        return false;
                    }
                    else if(input == 2)
                    {
                        return true;
-                   }
-                   else if(input % 2 != 0)
-                   {
-                       return false;
                    }
                    else
                    {
@@ -212,7 +208,7 @@
                if(!input)
                {
                    alert("Vui lòng nhập số");
-                   return Exit();
+                   return toggleoff();
                }
 
                if(input % 2 == 0)
