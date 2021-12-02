@@ -172,31 +172,32 @@
                document.getElementById('result').style.display = "none";
            }
         //    Ktra số nguyên tố
-           function songuyento(input)
+        function songuyento(input)
+    {
+       let isPrimeNumber = true;
+       if(input < 2)
+       {
+           isPrimeNumber = false;
+       }
+       else
+       {
+           for(let i = 2; i < input -1; i++)
+           {
+               if(input % i == 0)
                {
-                   if(input < 2 || input % 1 !=0)
-                   {
-                       return false;
-                   }
-                   else if(input == 2)
-                   {
-                       return true;
-                   }
-                   else
-                   {
-                       for(let i = 2; i<= input; i++)
-                       {
-                           if(input % i == 0)
-                           {
-                               return false;
-                           }
-                           else
-                           {
-                                return true;
-                           }
-                       }
-                   }
+                   isPrimeNumber = false;
                }
+           }
+       }
+       if(isPrimeNumber == true)
+       {
+           return true;
+       }
+       else
+       {
+           return false;
+       }
+    }
         //    In
            function check()
            {
